@@ -4,7 +4,10 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-
+    rapid_host: '%env(resolve:API_RAPID_HOST)%'
+    rapid_url: '%env(resolve:API_RAPID_URL)%'
+    rapid_key: '%env(resolve:API_RAPID_API_KEY)%'
+    rapid_app_id: '%env(resolve:API_RAPID_APP_ID)%'
 services:
     # default configuration for services in *this* file
     _defaults:

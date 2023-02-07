@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12"><h1>Season 2022 - Leagues de foot</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="row align-middle p-4">
+            {% for leagueInfo in data %}
+                <div class="col-md-4 align-content-center">
+                    <div class="card w-75 h-50">
+                        <img class="card-img-top" src="{{ leagueInfo.logo }}" alt="{{ leagueInfo.name }} logo">
+                        <div class="card-body align-bottom">
+                            <h5 class="card-title">{{ leagueInfo.name }}</h5>
+                            <a href="#" class="btn btn-primary request-matches" data-leagueid="{{ leagueInfo.id }}">Voir matches</a>
+                        </div>
+                    </div>
+                </div>
+                {% if (loop.index > 0) and loop.index is divisible by(3) %}
+                    </div><div class="row align-middle p-4">
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <div class="col-3 bg-info" id="sidePanel"></div>
+    </div>
+{% endblock %}
